@@ -77,7 +77,7 @@ class RentIncomeAdmin(admin.ModelAdmin):
     list_display=('tenant','apartment','amount','date_year_month','is_full_for_current_month')
     ordering=('id',)
     list_editable=('amount','is_full_for_current_month')
-    list_filter=(('is_full_for_current_month',admin.BooleanFieldListFilter),'date_year_month','apartment__property')
+    list_filter=(('is_full_for_current_month',admin.BooleanFieldListFilter),'date_year_month','apartment__property','apartment__property__bundle')
     search_fields=('tenant__last_name','apartment__property__address',)
     actions=[export_as_csv_action("CSV Export", fields=list_display)]
 

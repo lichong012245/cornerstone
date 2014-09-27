@@ -56,7 +56,10 @@ class Tenant(models.Model):
     is_current=models.BooleanField()
 
     def __unicode__(self):
-        return u'%s %s' % (self.first_name, self.last_name)
+        if self.is_current:        
+            return u'%s %s' % (self.first_name, self.last_name)
+        else:
+            return u'%s %s %s' % (self.first_name, self.last_name,'*')
 
     def property(self):
         return self.apartment.property
